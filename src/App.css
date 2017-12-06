@@ -1,13 +1,17 @@
-.App {
+body {
   text-align: center;
+  background: #303030;
+  color: white;
+  font-family: arial;
 }
 
 nav {
-  background: yellow;
+  background: #6200EA;
   padding: 10px;
+  border-bottom: solid #FFFF00 1px;
 }
 
 .tab {
-  color: red;
+  color: white;
   padding: 5px;
 }
