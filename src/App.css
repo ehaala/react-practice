@@ -10,7 +10,7 @@ body {
   text-align: center;
   background: #303030;
   color: white;
-  font-family: 'Carter one';
+  font-family: 'Arial';
 }
 
 nav {
@@ -19,13 +19,22 @@ nav {
   border-bottom: solid #FFFF00 1px;
 }
 
+h1 {
+  font-family: 'Carter one';
+}
+
 .tab {
+  font-family: 'Carter one';
   color: white;
   padding: 5px;
 }
 
 .padding {
 	padding: 5px;
+}
+
+.paddingTop {
+  padding-top: 30px;
 }
 
 .center {

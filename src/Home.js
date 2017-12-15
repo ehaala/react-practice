@@ -1,64 +1,60 @@
 import React, { Component } from 'react';
-import { RaisedButton, Tabs, Tab } from 'material-ui';
+import { SelectField, MenuItem } from 'material-ui';
 import { Row, Col } from 'react-flexbox-grid';
-import Slider from 'material-ui/Slider';
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
-  },
-};
-
-const songs = [
-'https://open.spotify.com/embed?uri=spotify:track:3YU6vJbjYUG0tiJyXf9x5V&theme=white',
-'https://open.spotify.com/embed?uri=spotify:track:02DGz57a3TK3jNiibbnxaK&theme=white',
-'https://open.spotify.com/embed?uri=spotify:track:6mVjlizvk7mq58DJl7pQ2j&theme=white'
+const url = 'https://embed.spotify.com/follow/1/?uri='
+const theme = '&size=detail&theme=dark'
+const rappers = [
+	'spotify:artist:55Aa2cqylxrFIXC767Z865',
+	'spotify:artist:20sxb77xiYeusSH8cVdatc',
+	'spotify:artist:2YZyLoL8N0Wb9xBt1NhZWg',
+	'spotify:artist:7dGJo4pcD2V6oG8kP0tJRR'
+]
+const djs = [
+	'spotify:artist:6M7RdR9ZP52h2mfNLmiHtU',
+	'spotify:artist:25jGdT0Q5ld9D9Lajg8JpD',
+	'spotify:artist:0SfsnGyD8FpIN4U4WCkBZ5'
 ]
 
 class Home extends Component {
-	render() {
-		return (
-			<div>
-				<h1>Evan's Music Picks</h1>
+  state = {
+    value: null,
+  };
 
-				<Row>
-				<Col xs={1} />
-				<Col xs={12} sm={10}>
-			  <Tabs>
+  handleChange = (event, index, value) => this.setState({value});
 
-			    <Tab label="Playlist of the Week" >
-			      <div className="padding center">
-							<iframe src="https://open.spotify.com/embed?uri=spotify:user:ehaala:playlist:1mY8fd3qlARXsORGoZucBw&theme=white" 
-							width="90%" height="500px" frameBorder="0" allowtransparency="true">
-							</iframe>
-			      </div>
-			    </Tab>
+  render() {
+    return (
+      <div>
+        <h1>Trending Artists</h1>
+        <SelectField
+          floatingLabelText="Genre"
+          value={this.state.value}
+          onChange={this.handleChange}
+        >
+          <MenuItem value={'Hip-Hop'} primaryText="Hip-Hop" />
+          <MenuItem value={'EDM'} primaryText="EDM" />
+        </SelectField>
+        <br />
 
-			    <Tab label="Songs of the Day" >
-			      <Row>
-			      	{songs.map(song =>
-					      <Col xs={12} sm={6}>
-						      <div className="padding center">
-						        <iframe src={song} 
-						        width="90%" height="380" frameBorder="0" allowtransparency="true">
-						        </iframe>
-						      </div>
-						    </Col>
-			      	)}
-			      </Row>
-			    </Tab>
+        {this.state.value == 'Hip-Hop' && 
+	      	rappers.map((artist, i) =>
+		        <iframe className="paddingTop" key={'artist_' + i} src={url + artist + theme} 
+		        width="300" height="56" scrolling="no" frameBorder="0" style={{border:'none'}, {overflow:'hidden'}} allowtransparency="true">
+		        </iframe>
+	      	)
+      	}
+        {this.state.value == 'EDM' && 
+	      	djs.map((artist, i) =>
+		        <iframe className="paddingTop" key={'artist_' + i} src={url + artist + theme} 
+		        width="300" height="56" scrolling="no" frameBorder="0" style={{border:'none'}, {overflow:'hidden'}} allowtransparency="true">
+		        </iframe>
+	      	)
+      	}
 
-			  </Tabs>
-			  </Col>
-			  <Col xs={1} />
-			  </Row>
-
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 }
 
 export default Home;

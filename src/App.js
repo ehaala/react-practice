@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Home from './Home.js';
-import Sports from './Sports.js';
+import Music from './Music.js';
 
 import {
   BrowserRouter as Router,
@@ -17,10 +17,10 @@ class App extends Component {
         <div className="App">
           <nav>
             <Link className="tab" to="/">Home</Link>
-            <Link className="tab" to="/sports">Sports</Link>
+            <Link className="tab" to="/music">Music</Link>
           </nav>
           <Route exact path="/" component={Home} />
-          <Route path="/sports" component={Sports} />
+          <Route path="/music" component={Music} />
         </div>
       </Router>
     );
