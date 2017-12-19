@@ -14,9 +14,10 @@ body {
 }
 
 nav {
+  text-align: left;
   background: #FF3D00;
-  padding: 10px;
   border-bottom: solid #FFFF00 1px;
+  padding: 10px;
 }
 
 h1 {
@@ -26,7 +27,8 @@ h1 {
 .tab {
   font-family: 'Carter one';
   color: white;
-  padding: 5px;
+  padding: 0 15px;
+  text-decoration: none;
 }
 
 .padding {
@@ -40,3 +42,15 @@ h1 {
 .center {
 	text-align: center;
 }
+
+.inlineblock {
+  display: inline-block;
+}
+
+/*.floatleft {
+  float: left;
+}
+
+.clearfix {
+    overflow: auto;
+}*/
